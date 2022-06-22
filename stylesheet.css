@@ -1,6 +1,10 @@
 /* Mulai code Anda dari baris terakhir */
 
 * {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
 }
 
@@ -213,5 +217,63 @@ footer {
   float: right;
   font-size: 25px;
   padding: 21px 0;
+  display: none;
+}
+
+/* Untuk bar */
+body{
+  font-family: montserrat;
+}
+
+/* nav{
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
+} */
+
+/* 
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 65px;
+  padding: 0 100px;
+  font-weight: bold;
+} */
+
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li{
+  display: inline-block;
+  line-height: 65px;
+  margin: 0 5px;
+}
+
+nav ul li a{
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+a.active, a:hover{
+  background: #5dca88;
+  transition: .5s;
+}
+
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 65px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check{
   display: none;
 }
