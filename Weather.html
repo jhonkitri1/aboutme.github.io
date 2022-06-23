@@ -24,7 +24,7 @@
                         <span id="city_name"></span>
                         <span id="country_name"></span>
                     </h4>
-                    <div id="icon"></div>
+                    <div id="icon" width="200" height="200"></div>
                     <p>
                         <span id="main"></span><br>
                         <em id="desc"></em>
@@ -48,7 +48,7 @@
                 // alert(JSON.stringify(data));
                 // alert(data.cod)
                 // if(data.cod==200){
-                    $("#icon").html("<img src='http://openweathermap.org/img/wn/"+ data.weather[0].icon+"@2x.png'>");
+                    $("#icon").html("<img src='http://openweathermap.org/img/wn/"+ data.weather[0].icon+"@2x.png' width='200'>");
                     $("#city_name").html(data.name);
                     $("#country_name").html("("+data.sys.country+")");
                     $("#main").html(data.weather[0].main);
