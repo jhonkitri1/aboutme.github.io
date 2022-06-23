@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Wheethear</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mx-auto mt-5 p-4" style="box-shadow: 0px 0px 12px black">
+                <input type="text" class="form-control" placeholder="Enter City Name.." id="city">
+                <button type="button" class="btn btn-success mt-2 btn-block" onclick="getWeather()">Get Current Weather</button>
+                
+                <div class="text-center mt-4">
+                    <h4>
+                        <span id="city_name"></span>
+                        <span id="country_name"></span>
+                    </h4>
+                    <div id="icon"></div>
+                    <p>
+                        <span id="main"></span><br>
+                        <em id="desc"></em>
+                    </p>
+                    <p id="temp"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function getWeather(){
+        var city = document.getElementById("city").value;
+        // alert(city)
+    
+        $.ajax({
+            url:"https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=570be46d1b38c6ca8f4a1b9811100230&units=metric",
+            type:"get",
+            success:function(data){
+                // console.log(data);
+                // alert(data.name);
+                // alert(JSON.stringify(data));
+                // alert(data.cod)
+                // if(data.cod==200){
+                    $("#icon").html("<img src='http://openweathermap.org/img/wn/"+ data.weather[0].icon+"@2x.png'>");
+                    $("#city_name").html(data.name);
+                    $("#country_name").html("("+data.sys.country+")");
+                    $("#main").html(data.weather[0].main);
+                    $("#desc").html("("+data.weather[0].description+")");
+                    $("#temp").html("Temp: "+data.main.temp+"&deg;C");
+                // }
+                // else if(data.cod == 400){
+                //     console.log("City Not Found");
+                // }
+            }
+            // error: function(e) {
+            //     console.log("eror");
+            // },
+            // dataType: "json",
+            // contentType: "application/json"
+        }) 
+    }  
+    </script>
+</body>
+</html>
